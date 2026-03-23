@@ -1,0 +1,66 @@
+/* ============================================
+   FAQ ACCORDION STYLES
+   ============================================ */
+
+.faq-toggle {
+    cursor: pointer;
+    position: relative;
+}
+
+.faq-toggle:focus-visible {
+    outline: 2px solid #13ec13;
+    outline-offset: 2px;
+}
+
+/* Estado inicial del contenido: oculto */
+.faq-content.hidden {
+    display: none;
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Estado del contenido cuando se abre */
+.faq-content:not(.hidden) {
+    display: block;
+    opacity: 1;
+}
+
+/* Transición suave para apertura y cierre */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+/* Icono de expansión */
+.faq-item .material-symbols-outlined {
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icono rotado cuando se expande */
+.faq-item .material-symbols-outlined.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Animación de entrada del item completo */
+.faq-item {
+    animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Para navegación por teclado */
+.faq-toggle:focus-within {
+    background-color: rgba(19, 236, 19, 0.05);
+}
